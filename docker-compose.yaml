@@ -1,0 +1,12 @@
+version: "3.6"
+services:
+  java:
+    image: openjdk:11-oracle
+    container_name: digitalojt-drone
+    tty: true
+    working_dir: /app
+    volumes:
+      - ./dev:/app
+    ports:
+      - 8080:8080 # 通常実行用
+      - 5050:5050 # デバッグ用
