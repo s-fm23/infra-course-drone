@@ -46,5 +46,3 @@ AWSの管理画面を開いて、App Runnerで「サービスの作成」をす�
 $ ./gradlew bootJar && cp build/libs/dev-0.0.1.jar ./
 $ java -jar ./dev-0.0.1.jar
 ```
-
-![AppRunner](https://i.gyazo.com/da1bd2486260b918fa108519194c376d.pngg "AppRunner")
