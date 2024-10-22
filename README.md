@@ -34,6 +34,6 @@ AWSの管理画面を開いて、App Runnerで「サービスの作成」をす�
 2. AppRunner 上ではビルドコマンドとスタートコマンドを設定する。
 
 ```
-$ ./gradlew bootJar && cp build/libs/dev-0.0.1.jar ./
-$ java -jar ./dev-0.0.1.jar
+$ mvn clean package
+$ java -Xms256m -jar target/dev-0.0.1.jar
 ```

@@ -6,3 +6,5 @@ build:
       - mvn clean package
 run:
   command: java -Xms256m -jar target/dev-0.0.1.jar .
+  network:
+    port: 8080
