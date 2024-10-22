@@ -15,6 +15,7 @@ $ docker exec -it digitalojt-drone /bin/bash
 ### アプリを起動
 
 ```
+# chmod +x ./gradlew
 # ./gradlew wrapper --gradle-version 7.4
 # ./gradlew build
 # ./gradlew bootRun
