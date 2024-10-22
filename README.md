@@ -5,20 +5,10 @@
 - Java 11
 - Spring 2.7.15
 
-### Docker 起動
+### アプリ起動
 
 ```
-$ docker-compose up -d
-$ docker exec -it digitalojt-drone /bin/bash
-```
-
-### アプリを起動
-
-```
-# chmod +x ./gradlew
-# ./gradlew wrapper --gradle-version 7.4
-# ./gradlew build
-# ./gradlew bootRun
+$ docker-compose up
 ```
 
 http://localhost:8080/ を開く

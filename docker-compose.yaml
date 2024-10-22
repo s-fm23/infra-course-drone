@@ -1,7 +1,7 @@
 version: "3.6"
 services:
   java:
-    image: openjdk:11-oracle
+    image: maven:3.8.5-openjdk-11
     container_name: digitalojt-drone
     tty: true
     working_dir: /app
@@ -10,3 +10,6 @@ services:
     ports:
       - 8080:8080 # 通常実行用
       - 5050:5050 # デバッグ用
+    command: >
+      sh -c "mvn clean package &&
+      java -Xms256m -jar target/dev-0.0.1.jar"
