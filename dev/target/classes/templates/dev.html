@@ -19,20 +19,47 @@
   <body>
     <div id="app">
       <v-app id="inspire">
-        <v-app-bar app>
+        <v-system-bar>
+          <v-spacer></v-spacer>
+          <v-icon>mdi-square</v-icon>
+          <v-icon>mdi-circle</v-icon>
+          <v-icon>mdi-triangle</v-icon>
+        </v-system-bar>
+        <v-app-bar
+          color="primary">
+          <v-app-bar-nav-icon @click="drawer = !drawer"></v-app-bar-nav-icon>
           <v-toolbar-title>ドローン生産在庫管理システム</v-toolbar-title>
         </v-app-bar>
+        <v-navigation-drawer
+          v-model="drawer"
+          permanent>
+          <v-list>
+            <v-list-item link title="ドローン一覧" prepend-icon="mdi-quadcopter"></v-list-item>
+            <v-list-item link title="部品情報管理" prepend-icon="mdi-cog"></v-list-item>
+            <v-list-item link title="在庫管理" prepend-icon="mdi-package-variant-closed"></v-list-item>
+            <v-list-item link title="注文処理" prepend-icon="mdi-send-circle"></v-list-item>
+            <v-list-item link title="ユーザー管理" prepend-icon="mdi-account-group"></v-list-item>
+          </v-list>
+        </v-navigation-drawer>
         <v-main>
           <v-container class="py-8 px-6" fluid>
-            <v-expansion-panels>
-              <v-expansion-panel
-                v-for="(drone, i) in list"
-                :key="i"
-                :title="drone.createdAt"
-                :text="drone.name"
-              >
-              </v-expansion-panel>
-            </v-expansion-panels>
+            <v-row>
+              <v-col cols="4" v-for="(drone, i) in list" :key="i">
+                <v-card
+                  class="mx-auto">
+                  <v-img
+                    height="200px"
+                    :src="images[i]"
+                    cover></v-img>
+                  <v-card-title>
+                    {{ drone.name }}
+                  </v-card-title>
+                  <v-card-subtitle>
+                    {{ drone.createdAt}}
+                  </v-card-subtitle>
+                </v-card>
+              </v-col>
+            </v-row>
           </v-container>
         </v-main>
       </v-app>
@@ -46,6 +73,20 @@
         data() {
           return {
             list: [],
+            drawer: true,
+            images: {
+              0: "https://drone-navigator.com/wp-content/uploads/2021/11/image2-7.jpg",
+              1: "https://drone-info.net/wp-content/uploads/2021/02/%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%BC%E3%83%B3%E3%82%B7%E3%83%A7%E3%83%83%E3%83%88-2022-06-08-21.49.21.jpg",
+              2: "https://product.acsl.co.jp/wp-content/uploads/2022/02/210930_ACSL-002_4%EF%BC%BFTri-scaled.jpg",
+              3: "https://www.cfctoday.org/wp-content/uploads/2022/07/joshua-kantarges-gBy985PKkpQ-unsplash-860x574.jpg",
+              4: "https://www.cfctoday.org/wp-content/uploads/2022/06/%E3%83%89%E3%83%AD%E3%83%BC%E3%83%B3%E3%80%80%E4%BE%A1%E6%A0%BC%E3%80%80%E3%82%AB%E3%83%A1%E3%83%A9%E4%BB%98%E3%81%8D%E3%80%80%E3%81%8A%E3%81%99%E3%81%99%E3%82%81%E3%81%AE%E3%82%A2%E3%82%A4%E3%82%AD%E3%83%A3%E3%83%83%E3%83%81%E7%94%BB%E5%83%8F-860x573.jpg",
+              5: "https://www.acsl.co.jp/admin/wp-content/uploads/2020/07/C-2-scaled.jpg",
+              6: "https://dsk-arc.com/wp-content/uploads/2023/06/%E3%83%89%E3%83%AD%E3%83%BC%E3%83%B3%E3%82%A4%E3%83%A9%E3%82%B9%E3%83%88.jpg",
+              7: "https://images.newswitch.jp/images/cevsrYTRfrRtTzrZPdo4UGErrt74kVGdTRHZDGpa.jpeg",
+              8: "https://skydrive2020.com/cargo-drone/img/skylift/slide01.jpg",
+              9: "https://img10.shop-pro.jp/PA01049/793/product/150665729.png",
+              10: "https://www.century.co.jp/products/img/d-hope_i_1000.png",
+            }
           };
         },
         async created() {
